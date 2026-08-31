@@ -1,0 +1,7 @@
+interface:
+  display_name: "TreeSeed"
+  short_description: "Operate governed TreeSeed platform capabilities"
+  default_prompt: "Use $treeseed to perform this work through the current governed TreeSeed capabilities."
+
+policy:
+  allow_implicit_invocation: true
