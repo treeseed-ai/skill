@@ -31,4 +31,11 @@ Treat the connected TreeSeed server as the authority for identity, access, gover
 
 ## Distribution
 
-Install this directory as one skill named `treeseed`, preserving `SKILL.md`, `catalog-receipt.json`, and `references/`. The receipt pins the accepted source and catalog evidence for this published copy; runtime discovery remains authoritative when a connected server advertises a newer compatible catalog.
+Install and update the project-scoped skill with the pinned Vercel Labs Skills CLI version recorded by the consuming project:
+
+```text
+npx skills@1.5.23 add treeseed-ai/skill --skill treeseed --agent codex --yes
+npx skills@1.5.23 update treeseed --project --yes
+```
+
+The receipt pins published SDK and API evidence for this copy. Runtime discovery remains authoritative when a connected server advertises a newer compatible catalog. Installed files and `skills-lock.json` belong to the consuming project; this repository remains the source of releases.
