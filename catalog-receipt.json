@@ -1,35 +1,27 @@
 {
-  "schemaVersion": "treeseed.skill-catalog-receipt/v1",
+  "schemaVersion": "treeseed.skill-catalog-receipt/v2",
   "protocolVersion": "2026-07-28",
-  "categories": [
-    "knowledge",
-    "governance",
-    "projects",
-    "execution",
-    "mcp"
-  ],
+  "skillsCliVersion": "1.5.23",
+  "categories": ["knowledge", "governance", "projects", "execution", "mcp"],
   "sdk": {
-    "version": "0.13.0-rc.25",
-    "stagingCommit": "548c13ac8bf156361c0329fd4117e266bc541d41",
-    "operationCatalogDigest": "sha256:e1d3ba43af80ed5978b22b86e8e0c43894fd27ddb48434940bac4659e391ce0f",
-    "mcpInputDigest": "sha256:cf9c77d9f81234b4fd123de68a197d8e32a8555c4534aa8b51fe36e384c8367f"
+    "version": "0.13.0-rc.61",
+    "sourceCommit": "0f0c04c99143da43d69a13ad6363d3d7265a9b77",
+    "contractBundle": {
+      "url": "https://github.com/treeseed-ai/sdk/releases/download/0.13.0-rc.61/contract-bundle.json",
+      "digest": "sha256:074aa15ef46cfca3949f0fd69a91561edd42f396b56c8670b2ee4b4ef75bbd3b"
+    },
+    "packageDigest": "sha256:2b19f0fa66a03bf43c7dfd45b09607fcced9564a18cf1df9f07b0997df0e652a",
+    "operationCatalogDigest": "sha256:28060eedb6b49b5169cbfa9ce055cb380c68ac27f9b25c58a0e1a9cc3cdb1be0",
+    "mcpInputDigest": "sha256:e277ad6aee473be430c2ded1efe9a511cb283a3741a6da716c7c9d89b9145f0f",
+    "openApiDigest": "sha256:20982482c701cde2d824d0aab5bd350284ad0203a4d6819f1389f79734ddee97"
   },
   "api": {
-    "stagingCommit": "819dbcd3aa24661ceab98df4e1413853a0166548",
-    "mcpCatalogDigest": "sha256:556297ce4e293df6e1446d5f081eeef6bc43ec76bbc6c59795a7d0414bd27d3a",
-    "openApiDigest": "sha256:8679239462624d57bdc285d6727042944081ac8b6c9c8eadd96e6fb76a2df0c2"
-  },
-  "mcpSurface": {
-    "tools": 123,
-    "resources": 5,
-    "resourceTemplates": 51,
-    "prompts": 5,
-    "capabilities": [
-      "completion",
-      "progress",
-      "cancellation",
-      "input_required",
-      "resource_subscriptions"
-    ]
+    "version": "0.8.0-rc.60",
+    "sourceCommit": "d275d8f4079db6ee965a78f3617e17022c26f53c",
+    "componentManifest": {
+      "url": "https://github.com/treeseed-ai/api/releases/download/0.8.0-rc.60/component-release.json",
+      "digest": "sha256:78353fa375658c8a3617db891b8fc6eb234bff1132fd02aeefbef0ecbcd0ccbf"
+    },
+    "imageDigest": "sha256:3b2a56b701c7afba40bad7c111320947ede0c55a93c4fe0bfabb45b1c0b5ef53"
   }
 }
