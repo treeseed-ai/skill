@@ -31,3 +31,17 @@ jobs:
           npx --yes skills@1.5.23 add "$GITHUB_WORKSPACE" --skill treeseed --agent codex --yes --copy
           test -f .agents/skills/treeseed/SKILL.md
           test -f skills-lock.json
+      - name: Verify published update and lock restoration
+        if: github.ref == 'refs/heads/main'
+        run: |
+          workspace="$(mktemp -d)"
+          cd "$workspace"
+          git init --quiet
+          npx --yes skills@1.5.23 add treeseed-ai/skill --skill treeseed --agent codex --yes --copy
+          cp .agents/skills/treeseed/SKILL.md expected.md
+          printf '\nmodified\n' >> .agents/skills/treeseed/SKILL.md
+          npx --yes skills@1.5.23 update treeseed --project --yes
+          cmp expected.md .agents/skills/treeseed/SKILL.md
+          mv .agents installed-backup
+          npx --yes skills@1.5.23 experimental_install
+          cmp expected.md .agents/skills/treeseed/SKILL.md
