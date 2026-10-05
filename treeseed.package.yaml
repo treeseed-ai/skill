@@ -1,0 +1,36 @@
+schemaVersion: treeseed.package/v1
+id: treeseed-skill
+name: TreeSeed Skill
+kind: content
+type: skill
+repository: treeseed-ai/skill
+capabilities: { save: true, verify: true, publish: true, deploy: false, localOnly: false }
+workflowTemplateVersion: "1"
+githubEnvironments: [production]
+verify: { fast: python3 -m unittest, local: python3 -m unittest, release: python3 -m unittest }
+releaseGate: { workflow: verify.yml }
+development:
+  schemaVersion: treeseed.development-runtime/v1
+  project: { id: skill, repository: treeseed-ai/skill }
+  defaults: { leaseSeconds: 14400, restoreOnFailure: true }
+  targets:
+    - id: source
+      kind: source-check
+      platforms: [linux-amd64, linux-arm64, darwin-arm64, darwin-amd64]
+      runtimeRequirements: [python>=3]
+      sourceRoots: [SKILL.md, references, agents, scripts, tests, catalog-receipt.json]
+      ignoredPaths: [__pycache__]
+      operations:
+        verify: { command: python3, args: [-m, unittest, discover, -s, tests], environment: {}, timeoutSeconds: 300 }
+      ready: { kind: marker, path: SKILL.md, timeoutSeconds: 30 }
+      outputs: []
+      endpoints: []
+      dependencies: []
+      statePolicy: stateless
+      migrationPolicy: none
+      secretRefs: {}
+      shutdown: { graceSeconds: 0, activeWorkPolicy: block }
+      resources: {}
+      logs: []
+      forbiddenOperations: [publish, production-tag]
+      promotion: { liveAdmissible: false, candidateRequiresVerification: true }
